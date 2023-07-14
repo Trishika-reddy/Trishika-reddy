@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Table </title>
+        <style>
+            table,tr,th,td{
+                border: 2px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="tid">
+            <tr>
+                <th>First_name</th>
+                <th>Middle_name</th>
+                <th>Last_name</th>
+            </tr>
+        </table><br><br>
+        <form> 
+            First Name: <input type="text" name="FirstName"> 
+            Middle Name: <input type="text" name="MiddleName"> 
+            Last Name: <input type="text" name="LastName"> <br /> <br /> 
+            <center><input type="button" value="Add Name" onclick="addRow('tid', [this.form.FirstName.value,this.form.MiddleName.value, this.form.LastName.value] );"> </center> <hr> 
+        </form>
+        <script>
+             function addRow(tableId, cells)
+             { 
+                var tabEle = document.getElementById(tableId);
+                var newRow = tabEle.insertRow(tabEle.rows.length); 
+                var newCell; 
+                for (var i = 0; i < cells.length; i++) 
+                { 
+                    newCell = newRow.insertCell(newRow.cells.length); 
+                    newCell.innerHTML = cells[i]; 
+                } 
+                return newRow; 
+             } 
+        </script>
+    </body>
+</html>
